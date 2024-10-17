@@ -1,0 +1,20 @@
+{
+  "name": "userop-examples",
+  "version": "1.0.0",
+  "description": "UserOP examples",
+  "main": "index.ts",
+  "scripts": {
+    "start": "tsx index.ts"
+  },
+  "author": "Shunsuke Watanabe",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.3.1",
+    "permissionless": "^0.2.10",
+    "viem": "^2.20.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.10",
+    "tsx": "^3.13.0"
+  }
+}
