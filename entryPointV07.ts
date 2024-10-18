@@ -1,11 +1,11 @@
 import { createSmartAccountClient } from "permissionless"
 import { toSimpleSmartAccount } from "permissionless/accounts"
-import { createPublicClient, getContract, http, parseEther, Hex } from "viem"
+import { createPublicClient, getContract, http, parseEther, Hex, encodeFunctionData } from "viem"
 import { entryPoint07Address, entryPoint06Address } from "viem/account-abstraction"
 import { privateKeyToAccount } from "viem/accounts"
 import { soneiumMinato } from "viem/chains"
 
-const factoryAddress = "0x";
+const factoryAddress = "0x91E60e0613810449d098b0b5Ec8b51A0FE8c8985";
 
 const networkUrl = process.env.NETWORK_RPC_URL ?? "";
 if (networkUrl === "") {
@@ -48,10 +48,24 @@ const smartAccountClient = createSmartAccountClient({
 	bundlerTransport: http(bundlerUrl),
 })
 
+const counterContractAddress = "0x6bcf154A6B80fDE9bd1556d39C9bCbB19B539Bd8";
+const counterAbi = [
+	{
+	  inputs: [],
+	  name: "count",
+	  outputs: [],
+	  stateMutability: "nonpayable",
+	  type: "function",
+	},
+  ];
+const callData = encodeFunctionData({
+	abi: counterAbi,
+	functionName: 'count'
+})
 const txHash = await smartAccountClient.sendTransaction({
-	to: "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+	to: counterContractAddress,
 	value: 0n,
-	data: "0x1234",
+	data: callData,
 })
  
 console.log(`User operation included: https://explorer-testnet.soneium.org/tx/${txHash}`)
