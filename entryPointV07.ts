@@ -1,7 +1,7 @@
 import { createSmartAccountClient } from "permissionless"
 import { toSimpleSmartAccount } from "permissionless/accounts"
-import { createPublicClient, getContract, http, parseEther, Hex, encodeFunctionData } from "viem"
-import { entryPoint07Address, entryPoint06Address } from "viem/account-abstraction"
+import { createPublicClient, http, parseEther, Hex, encodeFunctionData } from "viem"
+import { entryPoint07Address } from "viem/account-abstraction"
 import { privateKeyToAccount } from "viem/accounts"
 import { soneiumMinato } from "viem/chains"
 
@@ -48,6 +48,7 @@ const smartAccountClient = createSmartAccountClient({
 	bundlerTransport: http(bundlerUrl),
 })
 
+// Counter Contract
 const counterContractAddress = "0x6bcf154A6B80fDE9bd1556d39C9bCbB19B539Bd8";
 const counterAbi = [
 	{
@@ -62,6 +63,7 @@ const callData = encodeFunctionData({
 	abi: counterAbi,
 	functionName: 'count'
 })
+
 const txHash = await smartAccountClient.sendTransaction({
 	to: counterContractAddress,
 	value: 0n,

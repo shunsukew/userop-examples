@@ -6,7 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "tsx index.ts",
-    "v0.7": "tsx entryPointV07.ts"
+    "entrypoint-v0.7": "tsx entryPointV07.ts"
   },
   "author": "Shunsuke Watanabe",
   "license": "ISC",
