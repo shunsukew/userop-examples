@@ -2,22 +2,12 @@
 
 Testing ERC4337 AA User Ops in Soneium Minato Network.
 
-## Test UserOP
+## Installation
 
-1. Prepare `.env` variables
-```
-cp .env.template .env
+This example repository uses [permissionless.js](https://github.com/pimlicolabs/permissionless.js) for crafting User Operations and [Viem](https://viem.sh/) for onchain interactions.
 
-# Set your variables
-PRIVATE_KEY=
-NETWORK_RPC_URL=
-BUNDLER_URL=
 ```
-
-2. Run script
-```
-# Execute UserOP for EntryPoint version 0.7
-npm entrypoint-v0.7
+npm i
 ```
 
 ## Account Factory
@@ -42,4 +32,22 @@ Counter: `0x6bcf154A6B80fDE9bd1556d39C9bCbB19B539Bd8` (https://explorer-testnet.
   "stateMutability": "nonpayable",
   "type": "function"
 }
+```
+
+## Test UserOP
+
+1. Prepare `.env` variables
+```
+cp .env.template .env
+
+# Set your variables
+PRIVATE_KEY=
+NETWORK_RPC_URL=
+BUNDLER_URL=
+```
+
+2. Run script
+```
+# Execute UserOP for EntryPoint version 0.7
+npm entrypoint-v0.7
 ```

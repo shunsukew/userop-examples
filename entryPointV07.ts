@@ -5,6 +5,7 @@ import { entryPoint07Address } from "viem/account-abstraction"
 import { privateKeyToAccount } from "viem/accounts"
 import { soneiumMinato } from "viem/chains"
 
+// SimpleAccount Factory Contract Address for EntryPoint v0.7.
 const factoryAddress = "0x91E60e0613810449d098b0b5Ec8b51A0FE8c8985";
 
 const networkUrl = process.env.NETWORK_RPC_URL ?? "";
