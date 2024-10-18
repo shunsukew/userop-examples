@@ -3,14 +3,16 @@
   "version": "1.0.0",
   "description": "UserOP examples",
   "main": "index.ts",
+  "type": "module",
   "scripts": {
-    "start": "tsx index.ts"
+    "start": "tsx index.ts",
+    "entrypoint-v0.7": "tsx entryPointV07.ts"
   },
   "author": "Shunsuke Watanabe",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.3.1",
-    "permissionless": "^0.2.10",
+    "permissionless": "^0.2.0",
     "viem": "^2.20.0"
   },
   "devDependencies": {
