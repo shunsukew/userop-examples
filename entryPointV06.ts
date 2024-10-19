@@ -10,10 +10,10 @@ dotenv.config();
 
 const privateKey = process.env.PRIVATE_KEY! as Hex;
 
-const entryPoint07Address = "0x0000000071727De22E5E9d8BAf0edAc6f37da032";
-const entryPoint07AccountFactoryAddress = "0x91E60e0613810449d098b0b5Ec8b51A0FE8c8985";
+const entryPoint06Address = "0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789";
+const entryPoint06AccountFactoryAddress = "0x9406Cc6185a346906296840746125a0E44976454";
 const testCounterAddress = "0x6bcf154A6B80fDE9bd1556d39C9bCbB19B539Bd8";
-console.log('EntryPointAddress:', entryPoint07Address, 'AccountFactoryAddress:', entryPoint07AccountFactoryAddress, 'TestCounterAddress:', testCounterAddress);
+console.log('EntryPointAddress:', entryPoint06Address, 'AccountFactoryAddress:', entryPoint06AccountFactoryAddress, 'TestCounterAddress:', testCounterAddress);
 
 async function main() {
 	const publicClient = createPublicClient({
@@ -32,10 +32,10 @@ async function main() {
 	const simpleAccount = await toSimpleSmartAccount({
 		client: publicClient,
 		owner: privateKeyToAccount(privateKey),
-		factoryAddress: entryPoint07AccountFactoryAddress,
+		factoryAddress: entryPoint06AccountFactoryAddress,
 		entryPoint: {
-			address: entryPoint07Address,
-			version: "0.7",
+			address: entryPoint06Address,
+			version: "0.6",
 		},
 	})
 
