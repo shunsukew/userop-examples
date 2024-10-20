@@ -1,5 +1,4 @@
 import * as dotenv from "dotenv"
-import * as ethers from "ethers"
 import { soneiumMinato } from 'viem/chains'
 import { createPublicClient, http, Hex, encodeFunctionData } from 'viem'
 import { createBundlerClient } from 'viem/account-abstraction'
@@ -21,14 +20,6 @@ async function main() {
 		transport: http(process.env.NETWORK_URL!)
 	})
 
-	const signer = new ethers.Wallet(privateKey);
-	const prefundAccountAddress = await signer.getAddress() as Hex;
-	const prefundAccountBalance = await publicClient.getBalance({address: prefundAccountAddress, blockTag: "latest"});
-	console.log('using prefund account address', prefundAccountAddress, 'with balance', prefundAccountBalance.toString());
-	if (prefundAccountBalance === BigInt(0) ) {
-		console.error('prefund account has no balance, userOP may fail without Paymaster');
-	}
-
 	const simpleAccount = await toSimpleSmartAccount({
 		client: publicClient,
 		owner: privateKeyToAccount(privateKey),
@@ -38,6 +29,12 @@ async function main() {
 			version: "0.7",
 		},
 	})
+
+	const accountBalance = await publicClient.getBalance({address: simpleAccount.address});
+	console.log('using prefund account address', accountBalance, 'with balance', accountBalance.toString());
+	if (accountBalance === BigInt(0) ) {
+		console.error('prefund account has no balance, userOP may fail without Paymaster');
+	}
 
 	const bundlerClient = createBundlerClient({
 		client: publicClient,

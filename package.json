@@ -13,10 +13,8 @@
   },
   "devDependencies": {
     "dotenv": "^16.3.1",
-    "@account-abstraction/sdk": "^0.6",
     "@types/node": "^20.11.10",
     "ethers": "^5.7",
-    "ts-node": "^10.9.1",
-    "tsx": "^3.13.0"
+    "ts-node": "^10.9.1"
   }
 }
