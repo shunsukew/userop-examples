@@ -82,7 +82,7 @@ async function main() {
 		hash: userOpHash,
 	})
 	
-	console.log(`User operation included: https://explorer-testnet.soneium.org/block/${receipt.receipt.blockHash}`)
+	console.log(`User operation included: https://explorer-testnet.soneium.org/tx/${receipt.receipt.transactionHash}`)
 }
 
 main().catch((err) => console.error("Error:", err));
