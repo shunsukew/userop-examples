@@ -30,7 +30,7 @@ async function main() {
 		},
 	})
 
-    const accountBalance = await publicClient.getBalance({address: simpleAccount.address});
+	const accountBalance = await publicClient.getBalance({address: simpleAccount.address});
 	console.log('using prefund account address', accountBalance, 'with balance', accountBalance.toString());
 	if (accountBalance === BigInt(0) ) {
 		console.error('prefund account has no balance, userOP may fail without Paymaster');
