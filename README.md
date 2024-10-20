@@ -12,9 +12,6 @@ v0.7: `0x91E60e0613810449d098b0b5Ec8b51A0FE8c8985` (https://explorer-testnet.son
 
 ## Installation
 
-This example repository uses [Viem](https://viem.sh/) and [permissionless.js](https://github.com/pimlicolabs/permissionless.js) for crafting User Operations.
-Viem doesn't support SimpleSmartAccount by itself, importing it from `permissionless.js`. SimpleSmartAccount type in Viem is essentially a Viem's Custom SmartAccount which implements required interfaces. Thus, both needed as dependencies.
-
 This example repository leverages [Viem](https://viem.sh/) and [permissionless.js](https://github.com/pimlicolabs/permissionless.js) for crafting User Operations. While Viem does not natively support the `SimpleSmartAccount`, this functionality is provided via `permissionless.js`. The `SimpleSmartAccount` in `permissionless.js` is effectively a custom `SmartAccount` type that implements required interfaces `Viem` defines. As a result, both libraries are essential dependencies for this project.
 
 ```
